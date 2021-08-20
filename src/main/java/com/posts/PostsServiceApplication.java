@@ -7,9 +7,11 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class PostsServiceApplication {
-	
 
-	@Bean public RestTemplate getRestTemplate() { return new RestTemplate(); }
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(PostsServiceApplication.class, args);

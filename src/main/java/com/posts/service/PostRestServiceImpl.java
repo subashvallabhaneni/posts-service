@@ -15,7 +15,6 @@ import org.springframework.web.client.RestTemplate;
 import com.posts.dto.Comment;
 import com.posts.dto.Post;
 
-
 @Service
 public class PostRestServiceImpl implements PostRestService {
 
@@ -33,12 +32,10 @@ public class PostRestServiceImpl implements PostRestService {
 		ResponseEntity<Post[]> posts = restTemplate.getForEntity(postUrl, Post[].class);
 		HashMap<Long, Integer> processComments = processComments();
 		List<Post> postList = Arrays.asList(posts.getBody());
-		
-		postList.stream()
-		        .forEach(p -> p.setCommentCount(processComments.get(p.getId())));
-		postList = postList.stream()
-				           .sorted(Comparator.comparing(Post::getCommentCount).reversed())
-				           .collect(Collectors.toList());
+
+		postList.stream().forEach(p -> p.setCommentCount(processComments.get(p.getId())));
+		postList = postList.stream().sorted(Comparator.comparing(Post::getCommentCount).reversed())
+				.collect(Collectors.toList());
 		return postList;
 	}
 
@@ -60,7 +57,5 @@ public class PostRestServiceImpl implements PostRestService {
 		return map;
 
 	}
-	
-
 
 }

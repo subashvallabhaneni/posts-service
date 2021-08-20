@@ -6,11 +6,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 public class Post {
 
 	private Long id;
-	
 	private String title;
 	private String body;
 	private int commentCount;
-
 
 	public Long getId() {
 		return id;
