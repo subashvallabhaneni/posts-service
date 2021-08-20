@@ -2,6 +2,17 @@ package com.posts.dto;
 
 public class Comment {
 	
+	
+	
+	
+	public Comment(Long postId, Long id, String name, String email, String body) {
+		super();
+		this.postId = postId;
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.body = body;
+	}
 	private Long postId;
 	private Long id;
 	private String name;

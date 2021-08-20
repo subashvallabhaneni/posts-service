@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import com.posts.dto.Comment;
 import com.posts.dto.Post;
 
+
 @Service
 public class PostRestServiceImpl implements PostRestService {
 
@@ -29,7 +30,6 @@ public class PostRestServiceImpl implements PostRestService {
 
 	@Override
 	public List<Post> getPosts() {
-
 		ResponseEntity<Post[]> posts = restTemplate.getForEntity(postUrl, Post[].class);
 		HashMap<Long, Integer> processComments = processComments();
 		List<Post> postList = Arrays.asList(posts.getBody());
@@ -60,5 +60,7 @@ public class PostRestServiceImpl implements PostRestService {
 		return map;
 
 	}
+	
+
 
 }
